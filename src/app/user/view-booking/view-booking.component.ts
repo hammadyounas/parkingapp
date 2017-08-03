@@ -9,7 +9,6 @@ import {DataSource} from '@angular/cdk';
   styleUrls: ['./view-booking.component.css']
 })
 export class ViewBookingComponent implements OnInit {
-  //displayedColumns = ['Date', 'Time', 'ReserveHour', 'slotNumber'];
   uid;
   arr = [];
   obj: {placekey: any,userkey: any, bookingkey: any , address: any , date: any , endTime: any , reserveHour: any, slotNum: any , startTime: any  };
@@ -30,8 +29,8 @@ export class ViewBookingComponent implements OnInit {
           console.log(snapshot.key);
           if(snapshot.key == this.uid)
           snapshot.forEach(slot => {
-            this.obj = {placekey: {},userkey: {}, bookingkey: {} , address: {} , date: {} , endTime: {} , reserveHour: {}, slotNum: {} , startTime: {}};
-           //console.log(slot.val().date);
+            this.obj = {placekey: {},userkey: {}, bookingkey: {} , address: {} ,
+             date: {} , endTime: {} , reserveHour: {}, slotNum: {} , startTime: {}};
            this.obj.placekey = element.key;
            this.obj.userkey = snapshot.key;
            this.obj.bookingkey = slot.key;
@@ -46,10 +45,6 @@ export class ViewBookingComponent implements OnInit {
         });
       });
       console.log(this.arr);
-      
-      // user.forEach(snapshot => {
-      //   console.log(snapshot.key);
-      // });
     });
   }
   cancil(value: any){

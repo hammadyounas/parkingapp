@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from "../../provider/data.service";
 import { FirebaseObjectObservable } from 'angularfire2/database'
+import { AuthService } from "../../provider/auth.service";
 
 @Component({
   selector: 'book-parking',
@@ -23,6 +24,7 @@ export class BookParkingComponent implements OnInit {
   slotNum = 10;
   reserveHour;
   address;
+  userID;
   times = ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
   airportslots: { reserves: boolean, slotNum: number }[] = [
     { "reserves": true, "slotNum": 1 }, { "reserves": true, "slotNum": 2 }, { "reserves": true, "slotNum": 3 },
@@ -54,8 +56,11 @@ export class BookParkingComponent implements OnInit {
   selectstate = 'default';
   place = 'default';
   constructor(
-    private _dataService: DataService
-  ) { }
+    private _dataService: DataService,
+    private _authService: AuthService,
+  ) { 
+    this.userID = this._authService.getUserId();
+  }
 
   ngOnInit() {
   }
@@ -132,7 +137,7 @@ export class BookParkingComponent implements OnInit {
     // console.log(this.reserveHour);
     console.log(Num);
     this._dataService.pushslot(this.place, this.fullDate, this.startTime, this.endTime, 
-      this.reserveHour, Num , this.address);
+      this.reserveHour, Num , this.address , this.userID);
   }
   goback() {
     this.selectstate = 'default';

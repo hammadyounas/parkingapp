@@ -1,3 +1,13 @@
-<p>
-  feedback works!
-</p>
+<div class="container">
+  <md-card>
+    <md-card-header>
+      <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>Feed Back</md-card-title>
+    </md-card-header>
+  <br>
+    <!-- <div class="area"> -->
+    <textarea mdInput type="text" [(ngModel)]="ans" style="width: 1000px; height: 66px; margin-left: 30px; " placeholder="message" ></textarea>
+    <button md-raised-button (click)=submit(ans) color="accent" style="margin-left: 86%;" >submit</button>
+   <!-- </div>   -->
+  </md-card>
+</div>
