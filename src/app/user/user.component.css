@@ -1,0 +1,30 @@
+.body{
+    width: 70%;
+	height: 907px;
+	color: black;
+	border: solid 0px #BAB3B3;
+    display: inline-block;
+    margin: 0px 0px 0px 575px;
+	vertical-align: top;
+	background-color: #BAB3B3;
+
+}
+.left{
+	width: 82.5%;
+	height: 500px;
+	color: black;
+	border: solid 0px #BAB3B3;
+    display: inline-block;
+    margin: 250px 0px 0px 175px;
+	vertical-align: top;
+	background-color: #BAB3B3;
+}
+/* .left{
+	width: 30%;
+	height: 907px;
+	background-image: url(https://www.textures.com/system/gallery/photos/Roads/Markings/28373/RoadMarkings0015_1_download600.jpg);
+	 display: inline-block;
+	  margin: 10px 0px 0px 05px;
+	  vertical-align: top;
+
+} */

@@ -1,0 +1,11 @@
+.body{
+    width: 82.5%;
+	height: 500px;
+	color: black;
+	border: solid 0px #BAB3B3;
+    display: inline-block;
+    margin: 250px 0px 0px 175px;
+	vertical-align: top;
+	background-color: #BAB3B3;
+
+}

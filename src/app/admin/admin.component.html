@@ -1,0 +1,36 @@
+<md-toolbar color="primary">
+  <span style="margin-left: 10%"> Parking App  </span>
+  <span style="padding-left: 5px;"><button md-button (click)="addUser()" [routerLink]="('add-user')">add Users</button></span>
+  <span><button md-button (click)="bookings()" [routerLink]="('bookings')" >view Bookings</button></span>
+  <span><button md-button (click)="viewUser()" [routerLink]="('view-users')">view Users</button></span>
+  <span><button md-button (click)="viewFeedback()" [routerLink]="('view-feedback')">view Feedback</button></span>
+  <!-- <span>check</span> -->
+  <!-- <span> -->
+  <!-- <nav md-tab-nav-bar style="background-color:cornflowerblue;"  >
+  <a md-tab-link >check</a>
+</nav> -->
+  <!-- </span> -->
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+  <button (click)="logout()" md-button style="margin-left:30%">logout</button>
+
+  <!-- <span>Right Aligned Text</span> -->
+
+</md-toolbar>
+
+<div class="body">
+  <div *ngIf="appstate == 'adduser'">
+    <add-user></add-user>
+  </div>
+  <div *ngIf="appstate == 'bookings'">
+    <bookings></bookings>
+  </div>
+  <div *ngIf="appstate == 'viewuser'">
+    <view-users></view-users>
+  </div>
+  <div *ngIf="appstate == 'viewfeedback'">
+    <view-feedback></view-feedback>
+  </div>
+</div>
+<!-- <button md-button style="background-color:cornflowerblue;" (click)="logout()">logout</button> -->
