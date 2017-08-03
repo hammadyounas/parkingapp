@@ -15,7 +15,8 @@ import { Router } from "@angular/router";
 @Injectable()
 export class DataService {
   slotobj: FirebaseObjectObservable<any>;
-  pushobj: FirebaseListObservable<any>
+  pushobj: FirebaseListObservable<any>;
+  deleteBooking: FirebaseListObservable<any>;
   uid;
   //tempobj: { uid: string , date: Date , startTime: string , endTime: string , reserveHour: number}
   slot = [
@@ -31,14 +32,14 @@ export class DataService {
     this.uid = this._authservice.getUserId();
     //console.log(this.uid);
   }
-  pushslot(placeName, tempdate, startTime, endTime, reservehour, slotnum) {
+  pushslot(placeName, tempdate, startTime, endTime, reservehour, slotnum ,placeAddress) {
     var obj = [
       {
         date: tempdate, startTime: startTime, endTime: endTime, reserveHour: reservehour, slotNum: slotnum
       }
     ];
     this.pushobj = this.db.list('/bookings/' + placeName + '/' + this.uid)
-    this.pushobj.push({ date: tempdate, startTime: startTime, endTime: endTime, reserveHour: reservehour, slotNum: slotnum }).then(data => {
+    this.pushobj.push({ date: tempdate, startTime: startTime, endTime: endTime, reserveHour: reservehour, slotNum: slotnum , address: placeAddress }).then(data => {
       console.log('slotbooked');
       alert('your parking has been booked :)');
       this.router.navigateByUrl('/user');
@@ -68,6 +69,10 @@ export class DataService {
 
       // });
     })
+  }
+  cancilBookings(value: any){
+    this.deleteBooking = this.db.list('/bookings/' + value.placekey + '/' + value.userkey,{preserveSnapshot: true});
+    this.deleteBooking.remove(value.bookingkey);
   }
 
   slots(placeName): Observable<any> {

@@ -22,6 +22,7 @@ export class BookParkingComponent implements OnInit {
   endTime;
   slotNum = 10;
   reserveHour;
+  address;
   times = ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
   airportslots: { reserves: boolean, slotNum: number }[] = [
     { "reserves": true, "slotNum": 1 }, { "reserves": true, "slotNum": 2 }, { "reserves": true, "slotNum": 3 },
@@ -61,15 +62,18 @@ export class BookParkingComponent implements OnInit {
   airport() {
     this.place = 'airport';
     this.selectstate = 'viewtime';
+    this.address = 'Jinnah International Airport Karachi';
   }
   hospital() {
     this.place = 'hospital';
     this.selectstate = 'viewtime';
+     this.address = 'Jinnah Hospital Karachi';
   }
   college() {
     this.place = 'college'
     this.selectstate = 'viewtime';
-  }
+    this.address = 'DHA Sheikh Khalifa bin Zayed College';
+  };
 
   submit(picker, hour, time) {
     console.log(picker);
@@ -127,7 +131,8 @@ export class BookParkingComponent implements OnInit {
     // console.log(this.endTime);
     // console.log(this.reserveHour);
     console.log(Num);
-    this._dataService.pushslot(this.place, this.fullDate, this.startTime, this.endTime, this.reserveHour, Num);
+    this._dataService.pushslot(this.place, this.fullDate, this.startTime, this.endTime, 
+      this.reserveHour, Num , this.address);
   }
   goback() {
     this.selectstate = 'default';

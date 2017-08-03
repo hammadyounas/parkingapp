@@ -4,26 +4,44 @@
 <div class="container" >
   <md-card>
     <md-card-title>Your Current bookings</md-card-title>
-    <md-table *ngFor="let array of arr" >
+    <table >
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Reserve Hour</th>
+        <th>Slot Number</th>
+        <th>Address</th>
+        <th>Cancil</th>
+      </tr>
+      <tr *ngFor="let array of arr">
+        <th>{{array.date}}</th>
+        <th>{{array.startTime}}</th>
+        <th>{{array.reserveHour}}</th>
+        <th>{{array.slotNum}}</th>
+        <th>{{array.address}}</th>
+        <th><button md-raised-button (click)="cancil(array)" style="background-color:cornflowerblue;">cancil</button></th>
+      </tr>
+    </table>
+    <!-- <md-table   >
       <ng-container cdkColumnDef="Date">
         <md-header-cell *cdkHeaderCellDef>Date</md-header-cell>
-         <md-cell *cdkCellDef> {{array.date}} </md-cell> 
+         <md-cell > {{array.date}} </md-cell> 
       </ng-container>
       <ng-container cdkColumnDef="Time" >
         <md-header-cell *cdkHeaderCellDef>Time</md-header-cell>
-         <md-cell *cdkCellDef> {{array.startTime}} </md-cell> 
+         <md-cell> {{array.startTime}} </md-cell> 
       </ng-container>
       <ng-container cdkColumnDef="ReserveHour" >
         <md-header-cell *cdkHeaderCellDef>ReserveHour</md-header-cell>
-         <md-cell *cdkCellDef> {{array.reserveHour}} </md-cell> 
+         <md-cell > {{array.reserveHour}} </md-cell> 
       </ng-container>
       <ng-container cdkColumnDef="slotNumber">
         <md-header-cell *cdkHeaderCellDef>slotNumber</md-header-cell>
-         <md-cell *cdkCellDef> {{array.slotNum}} </md-cell> 
+         <md-cell> {{array.slotNum}} </md-cell> 
       </ng-container>
 
         <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
-        <!-- <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row> -->
-    </md-table>
+           <md-row  *ngFor="let array of arr"></md-row>   
+    </md-table> -->
   </md-card>
 </div>
