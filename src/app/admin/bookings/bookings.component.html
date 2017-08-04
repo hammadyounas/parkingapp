@@ -1,3 +1,26 @@
-<p>
+<!-- <p>
   bookings works!
-</p>
+</p> -->
+<div class="container">
+  <md-card>
+    <md-card-title>bookings</md-card-title>
+    <table >
+      <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Reserve Hour</th>
+        <th>Slot Number</th>
+        <th>Address</th>
+        <th>Cancil</th>
+      </tr>
+       <tr *ngFor="let array of arr">
+        <th>{{array.date}}</th>
+        <th>{{array.startTime}}</th>
+        <th>{{array.reserveHour}}</th>
+        <th>{{array.slotNum}}</th>
+        <th>{{array.address}}</th>
+        <th><button md-raised-button (click)="cancil(array)" style="background-color:cornflowerblue;">cancil</button></th>
+      </tr> 
+    </table>
+  </md-card>
+</div>
