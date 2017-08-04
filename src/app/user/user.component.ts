@@ -15,11 +15,6 @@ export class UserComponent implements OnInit {
     this.seedata()
   }
   seedata(){
-    // this._dataService.getProfile().subscribe(data=>{
-    //   console.log('data here');
-      
-    //   console.log(data);
-    // })
   }
 
   ngOnInit() {
@@ -37,13 +32,7 @@ this.appstate = 'viewbooking';
     this.appstate = 'feedback';
   }
   logout(){
-   // this.id = this._authService.getUserId();
-   // console.log('before logout');
-    //console.log(this.id);
     this._authService.logout();
-   // this.id = this._authService.getUserId();
-    //console.log('after logout');
-   // console.log(this.id);
   }
 
 }

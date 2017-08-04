@@ -19,7 +19,6 @@ export class ViewUsersComponent implements OnInit {
       this.arr = [];
       snapshots.forEach(element => {
         console.log(element.key);
-        //console.log(element.val());
         if(element.val().usertype != 'admin'){
           this.obj = {userkey: {},Name: {}, Email: {}, Address: {}, Number: {}, uType: {}};
           this.obj.userkey = element.key;
@@ -29,14 +28,12 @@ export class ViewUsersComponent implements OnInit {
           this.obj.Address = element.val().address;
           this.obj.uType = element.val().usertype;
           this.arr.push(this.obj);
-          //console.log(this.arr);
           
         }
       });
     })
   }
   deleteuser(array){
-    ///console.log(array);
     this._dataService.deleteUser(array.userkey);
     
   }

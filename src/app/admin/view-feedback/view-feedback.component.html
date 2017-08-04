@@ -1,8 +1,31 @@
 <div class="container">
   <md-card>
     <md-card-header>
-    <div md-card-avatar class="example-header-image"></div>
-    <md-card-title>Users Feeback</md-card-title>
+      <div md-card-avatar class="example-header-image"></div>
+      <md-card-title>Users Feeback</md-card-title>
     </md-card-header>
+    <br>
+    <div *ngIf="state == 'view'">
+      <div *ngFor="let a of userArr">
+        <button type="button" md-button mdTooltip="view feedback" (click)="chat(a.userkey)">{{a.username}}</button>
+      </div>
+    </div>
+    <div *ngIf="state == 'showchat'">
+      <div *ngFor="let a of arr">
+        <div *ngIf="a.usertype == 'admin'">
+          <p style="margin-left: 200px; background-color:cornflowerblue; display: inline-block; padding: 5px 3px 5px 3px; border-radius:5px; ">{{a.msg}}</p>
+        </div>
+        <div *ngIf="a.usertype == 'user'">
+          <p style="margin-left: 30px;"><strong>{{a.name}}: </strong>{{a.msg}}</p>
+        </div>
+      </div>
+
+      <textarea mdInput type="text" [(ngModel)]="ans" style="width: 1000px; height: 66px; margin-left: 30px; " placeholder="message"></textarea>
+      <div class="inner">
+        <button md-raised-button (click)=goback() color="accent" >back</button>
+        <button md-raised-button (click)=submit(ans) color="accent" >submit</button>
+      </div>
+    </div>
+
   </md-card>
 </div>

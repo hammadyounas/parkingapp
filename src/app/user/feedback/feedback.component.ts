@@ -15,15 +15,12 @@ import {
 })
 export class FeedbackComponent implements OnInit {
   uid;
-//  userType
   arr = [];
   constructor(
     private _chatService: ChatService,
     private _authService: AuthService
   ) {
-    this.uid = this._authService.getUserId();
-  // this.userType =  this._authService.UserType();
-    
+    this.uid = this._authService.getUserId();    
     this.getchat()
    }
   getchat(){
@@ -41,13 +38,6 @@ export class FeedbackComponent implements OnInit {
   ngOnInit() {
   }
   submit(msg){
-    console.log(msg);
-   
-    //console.log(this.userType);
-    
-     
-    //console.log(this.userType);
-    
     this._chatService.pushChat(this.uid,msg);
   }
 

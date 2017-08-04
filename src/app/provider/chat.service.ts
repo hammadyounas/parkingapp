@@ -27,7 +27,6 @@ export class ChatService {
   ) {
     this.uid = this._authService.getUserId();
     this.getuser();
-    //this.UserType();
 
   }
   getuser() {
@@ -41,27 +40,28 @@ export class ChatService {
 
         console.log(this.userType);
 
-        //this.router.navigateByUrl('admin');
       }
       else if (data.val().usertype == 'user') {
         this.userType = 'user';
         this.userName = data.val().name;
         console.log(this.userName);
         console.log(this.userType);
-
-        //this.router.navigateByUrl('/user');
       }
     })
   }
-  allChatProvide(): Observable<any>{
-    this.chat = this.db.list('/chat/',{preserveSnapshot: true});
-    return this.chat.map(data=>{
+  adminReply(msgs, key) {
+    this.chat = this.db.list('/chat/' + key);
+    this.chat.push({ msg: msgs, usertype: this.userType, name: this.userName }).then(data => {
+      console.log('push feedback');
+    })
+  }
+  allChatProvide(): Observable<any> {
+    this.chat = this.db.list('/chat/', { preserveSnapshot: true });
+    return this.chat.map(data => {
       return data;
     })
   }
   chatprovide(userID): Observable<any> {
-    // console.log(userID);
-
     this.chat = this.db.list('/chat' + '/' + userID, { preserveSnapshot: true });
     return this.chat.map(chatData => {
       return chatData;
@@ -73,21 +73,16 @@ export class ChatService {
     this.profile = this.db.object('/userRegistration/' + this.uid, { preserveSnapshot: true });
     return this.profile.map(data => {
       console.log(data.val());
-      //this.userType = data.val().usertype;
-      // console.log(this.userType);
       return data.val();
-      //return data.val().usertype;
     })
-    //return this.userType;
   }
   pushChat(userId, msgs) {
     console.log(userId);
     console.log(msgs);
     console.log(this.userType);
     this.chat = this.db.list('/chat/' + userId);
-    this.chat.push({ msg: msgs, usertype: this.userType , name: this.userName }).then(data => {
+    this.chat.push({ msg: msgs, usertype: this.userType, name: this.userName }).then(data => {
       console.log('push feedback');
-      alert('your feedback have submitted replay will be recived soon');
       this.router.navigateByUrl('/user/feedback');
     })
   }

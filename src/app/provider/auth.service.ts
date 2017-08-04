@@ -52,15 +52,9 @@ export class AuthService {
     this.usertype.subscribe(data => {
       console.log(data.val());
       if (data.val().usertype == 'admin') {
-      //  this.userType = 'admin';
-       // console.log(this.userType);
-
         this.router.navigateByUrl('admin');
       }
       else if (data.val().usertype == 'user') {
-     //   this.userType = 'user';
-       // console.log(this.userType);
-
         this.router.navigateByUrl('/user');
       }
     })
@@ -77,7 +71,9 @@ export class AuthService {
       .then(user => {
         this.authstate = this.afAuth.auth.currentUser.uid;
         this.newob = this.db.object('/userRegistration/' + this.afAuth.auth.currentUser.uid);
-        this.newob.set(value);
+        this.newob.set(value).then(data =>{
+          this.finduser();
+        });
       })
   }
   getUserId() {

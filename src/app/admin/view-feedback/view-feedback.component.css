@@ -5,6 +5,10 @@
     width: 1084px;
     height: 66px;
 }
+.inner{
+    display: inline-block;
+    margin-left: 78%;
+}
 .example-header-image {
   background-image: url('../../../assets/images.jpg');
   background-size: cover;

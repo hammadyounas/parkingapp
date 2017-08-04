@@ -9,11 +9,12 @@
       <div *ngIf="a.usertype == 'user'">
       <p style="margin-left: 200px; background-color:cornflowerblue; display: inline-block; padding: 5px 3px 5px 3px; border-radius:5px; ">{{a.msg}}</p>
       </div>
+      <div *ngIf="a.usertype == 'admin'">
+        <p style="margin-left: 30px;"><strong>admin: </strong>{{a.msg}}</p>
+      </div>
     </div>
     
-    <!-- <div class="area"> -->
     <textarea mdInput type="text" [(ngModel)]="ans" style="width: 1000px; height: 66px; margin-left: 30px; " placeholder="message"></textarea>
     <button md-raised-button (click)=submit(ans) color="accent" style="margin-left: 86%;">submit</button>
-    <!-- </div>   -->
   </md-card>
 </div>

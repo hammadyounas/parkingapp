@@ -87,14 +87,10 @@ export class BookParkingComponent implements OnInit {
     this.year = picker._selected.getFullYear();
     this.fullDate = this.date + '/' + (this.month + 1) + '/' + this.year;
     console.log(this.currentdate.getDate());
-    //this.currentFullDate = (this.currentdate.getMonth()+1) + '/' + this.currentdate.getDate()  + '/' + this.currentdate.getFullYear();
-    //console.log('current date');
-    //console.log(this.currentFullDate);
     console.log(this.fullDate);
     this.startTime = parseInt(time);
     this.endTime = this.startTime + hour;
     this.reserveHour = hour;
-    // this._dataService.pushslot(this.place,this.fullDate,this.startTime,this.endTime,hour,this.slotNum);
     this._dataService.slots(this.place).subscribe(snapshots => {
       snapshots.forEach(snapshot => {
         console.log(snapshot.key)
@@ -121,9 +117,6 @@ export class BookParkingComponent implements OnInit {
       console.log('done');
       this.selectstate = 'selectslot';
     })
-    //console.log(this.date);
-    //console.log(this.month);
-    //console.log(this.year);
 
 
     console.log(hour);
@@ -131,10 +124,6 @@ export class BookParkingComponent implements OnInit {
   }
   booked(Num) {
     console.log(Num);
-    // console.log(this.fullDate);
-    // console.log(this.startTime);
-    // console.log(this.endTime);
-    // console.log(this.reserveHour);
     console.log(Num);
     this._dataService.pushslot(this.place, this.fullDate, this.startTime, this.endTime, 
       this.reserveHour, Num , this.address , this.userID);

@@ -22,7 +22,6 @@
   <div *ngIf="selectstate == 'viewtime'">
     <md-card>
       <md-card-title>select time slot</md-card-title>
-      <!-- <p><strong>Time</strong></p> -->
       <md-select placeholder="time" [(ngModel)]="time">
         <md-option *ngFor="let time of times" [value]="time">
           {{time}}
@@ -30,8 +29,6 @@
       </md-select>
 
       <br><br><br><br>
-      <!-- <p><strong>Date</strong></p>
-      <input md-Input type="date"> -->
       <md-input-container>
         <input mdInput [min]="currentdate" [max]="maxDate" [mdDatepicker]="picker" placeholder="Choose a date">
         <button mdSuffix [mdDatepickerToggle]="picker"></button>
@@ -57,7 +54,6 @@
           <md-card-actions>
             <div *ngIf="slot.reserves == true" class="box">
               <button md-raised-button (click)="booked(slot.slotNum)" style="background-color:cornflowerblue;">slot {{slot.slotNum}}</button>
-              <!-- <a md-raised-button (click)="booked()" style="background-color:cornflowerblue;">slot {{slot.slotNum}}</a> -->
             </div>
             <div *ngIf="slot.reserves == false" class="box">
               <button md-raised-button (click)="notify()" style="background-color:yellow;">slot {{slot.slotNum}}</button>
@@ -65,42 +61,31 @@
           </md-card-actions>
         </div>
       </div>
-         <div *ngIf="place == 'hospital'">
-          <div *ngFor="let slot of hospitalslots">
-            <md-card-actions>
-              <div *ngIf="slot.reserves == true" class="box">
-                <button md-raised-button (click)="booked(slot.slotNum)" style="background-color:cornflowerblue;">slot {{slot.slotNum}}</button>
-              </div>
-              <div *ngIf="slot.reserves == false" class="box">
-                <button md-raised-button (click)="notify()" style="background-color:yellow;">slot {{slot.slotNum}}</button>
-              </div>
-            </md-card-actions>
-          </div>
-        </div> 
-         <div *ngIf="place == 'college'">
-          <div *ngFor="let slot of collegeslots">
-            <md-card-actions>
-              <div *ngIf="slot.reserves == true" class="box">
-                <button md-raised-button (click)="booked(slot.slotNum)" style="background-color:cornflowerblue;">slot {{slot.slotNum}}</button>
-              </div>
-              <div *ngIf="slot.reserves == false" class="box">
-                <button md-raised-button (click)="notify()" style="background-color:yellow;">slot {{slot.slotNum}}</button>
-              </div>
-            </md-card-actions>
-          </div>
-        </div> 
+      <div *ngIf="place == 'hospital'">
+        <div *ngFor="let slot of hospitalslots">
+          <md-card-actions>
+            <div *ngIf="slot.reserves == true" class="box">
+              <button md-raised-button (click)="booked(slot.slotNum)" style="background-color:cornflowerblue;">slot {{slot.slotNum}}</button>
+            </div>
+            <div *ngIf="slot.reserves == false" class="box">
+              <button md-raised-button (click)="notify()" style="background-color:yellow;">slot {{slot.slotNum}}</button>
+            </div>
+          </md-card-actions>
+        </div>
+      </div>
+      <div *ngIf="place == 'college'">
+        <div *ngFor="let slot of collegeslots">
+          <md-card-actions>
+            <div *ngIf="slot.reserves == true" class="box">
+              <button md-raised-button (click)="booked(slot.slotNum)" style="background-color:cornflowerblue;">slot {{slot.slotNum}}</button>
+            </div>
+            <div *ngIf="slot.reserves == false" class="box">
+              <button md-raised-button (click)="notify()" style="background-color:yellow;">slot {{slot.slotNum}}</button>
+            </div>
+          </md-card-actions>
+        </div>
+      </div>
     </md-card>
-    </div>
-
   </div>
 
-
-  <!-- <div *ngIf="routestate == 'airport'">
-<airport></airport>
 </div>
-<div *ngIf="routestate == 'college'">
-  <college></college>
-</div>
-<div *ngIf="routestate == 'hospital'">
-  <hospital></hospital>
-</div> -->

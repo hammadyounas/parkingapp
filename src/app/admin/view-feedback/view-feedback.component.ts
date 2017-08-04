@@ -7,25 +7,66 @@ import { ChatService } from "../../provider/chat.service";
   styleUrls: ['./view-feedback.component.css']
 })
 export class ViewFeedbackComponent implements OnInit {
-  state;
-
+  state = 'view';
+  userArr = [];
+  arr = [];
+  temp = 'true';
+  userkey;
+  nameobj: {userkey: any, username: any};
+  obj: {userkey: any, name: any,msg: any, type: any}
   constructor(
     private _chatService: ChatService
   ) {
+    this.state = 'view';
     this.getchat();
    }
   getchat(){
     this._chatService.allChatProvide().subscribe(data=>{
+      this.userArr = [];
       console.log(data);
       data.forEach(element => {
-        //console.log(element.val());
+         this.nameobj =  {userkey: {}, username: {}};
+        console.log(element.key);
         element.forEach(value => {
-          console.log(value.val());
-          
+          if(value.val().name != 'admin'){
+          console.log(element.key);
+          this.nameobj.userkey = element.key;
+          this.nameobj.username = value.val().name;
+          console.log(value.val().name);
+          }
         });
+        this.userArr.push(this.nameobj);
+        console.log(this.userArr);
+        
         
       });
     })
+    console.log(this.state);
+    
+  }
+  chat(key){
+    console.log(key);
+    this.userkey = key;
+    this._chatService.chatprovide(key).subscribe(data=>{
+      this.state = 'showchat';
+      this.arr = [];
+      data.forEach(element => {
+        
+        this.arr.push(element.val());
+        console.log(this.arr);
+        
+      });
+    })
+    
+  }
+  submit(ans){
+    console.log(ans);
+    console.log(this.userkey);
+    this._chatService.adminReply(ans,this.userkey);
+    
+  }
+  goback(){
+     this.state = 'view';
   }
 
   ngOnInit() {

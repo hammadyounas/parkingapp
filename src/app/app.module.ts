@@ -14,6 +14,7 @@ import {
   MdDatepickerModule,
   MdNativeDateModule,
   MdSelectModule,
+  MdTooltipModule
 } from '@angular/material';
 import 'hammerjs';
 import { CdkTableModule } from '@angular/cdk';
@@ -106,6 +107,7 @@ import { HospitalComponent } from './user/hospital/hospital.component';
     MdNativeDateModule,
     MdSelectModule,
     MdTableModule,
+    MdTooltipModule,
 
     //angular form
     ReactiveFormsModule,
