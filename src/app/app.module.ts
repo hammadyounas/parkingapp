@@ -38,6 +38,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 //import { AuthService } from './auth.service'
 import { AuthService } from './provider/auth.service';
 import { DataService } from "./provider/data.service";
+import { ChatService } from "./provider/chat.service";
 
 //auth guard
 import { AuthGuard } from './auth.guard';
@@ -62,6 +63,7 @@ import { ViewFeedbackComponent } from './admin/view-feedback/view-feedback.compo
 import { AirportComponent } from './user/airport/airport.component';
 import { CollegeComponent } from './user/college/college.component';
 import { HospitalComponent } from './user/hospital/hospital.component';
+
 
 
 
@@ -128,6 +130,7 @@ import { HospitalComponent } from './user/hospital/hospital.component';
     AuthService,
     AdministratorGuard,
     DataService,
+    ChatService
   ],
   bootstrap: [AppComponent]
 })
