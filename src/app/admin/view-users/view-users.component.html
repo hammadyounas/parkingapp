@@ -1,3 +1,21 @@
-<p>
-  view-users works!
-</p>
+<div class="container">
+  <md-card>
+  <md-card-title>Users</md-card-title>
+  <table >
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Number</th>
+        <th>Address</th>
+        <th>Cancil</th>
+       </tr>
+       <tr *ngFor="let array of arr">
+        <th>{{array.Name}}</th>
+        <th>{{array.Email}}</th>
+        <th>{{array.Number}}</th>
+        <th>{{array.Address}}</th>
+        <th><button md-raised-button (click)="deleteuser(array)" style="background-color:cornflowerblue;">cancil</button></th>
+      </tr>  
+    </table>
+  </md-card>
+</div>
