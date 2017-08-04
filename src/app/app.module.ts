@@ -49,21 +49,14 @@ import { AdministratorGuard } from "./provider/administrator.guard";
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
-//import { PlaceComponent } from './place/place.component';
-import { ParkingPlaceComponent } from './user/parking-place/parking-place.component';
 import { BookParkingComponent } from './user/book-parking/book-parking.component';
 import { ViewBookingComponent } from './user/view-booking/view-booking.component';
 import { FeedbackComponent } from './user/feedback/feedback.component';
-import { AddUserComponent } from './admin/add-user/add-user.component';
 import { BookingsComponent } from './admin/bookings/bookings.component';
 import { ViewUsersComponent } from './admin/view-users/view-users.component';
 import { ViewFeedbackComponent } from './admin/view-feedback/view-feedback.component';
-import { AirportComponent } from './user/airport/airport.component';
-import { CollegeComponent } from './user/college/college.component';
-import { HospitalComponent } from './user/hospital/hospital.component';
 
 
 
@@ -73,26 +66,18 @@ import { HospitalComponent } from './user/hospital/hospital.component';
     AppComponent,
     LoginComponent,
     SignupComponent,
-    DashboardComponent,
     AdminComponent,
     UserComponent,
-    //PlaceComponent,
-    ParkingPlaceComponent,
     BookParkingComponent,
     ViewBookingComponent,
     FeedbackComponent,
-    AddUserComponent,
     BookingsComponent,
     ViewUsersComponent,
     ViewFeedbackComponent,
-    AirportComponent,
-    CollegeComponent,
-    HospitalComponent,
     
   ],
   imports: [
     BrowserModule,
-    //angular material
     BrowserAnimationsModule,
     NoopAnimationsModule,
     MdButtonModule,

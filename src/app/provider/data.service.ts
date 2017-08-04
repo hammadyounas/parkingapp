@@ -104,7 +104,7 @@ export class DataService {
     this.userChat.remove(key);
 
 
-    // })
+ 
   }
   getProfile(): Observable<any> {
     this.userData = this.db.object('/userRegistration/' + this.uid, { preserveSnapshot: true });
