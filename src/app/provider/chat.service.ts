@@ -53,6 +53,12 @@ export class ChatService {
       }
     })
   }
+  allChatProvide(): Observable<any>{
+    this.chat = this.db.list('/chat/',{preserveSnapshot: true});
+    return this.chat.map(data=>{
+      return data;
+    })
+  }
   chatprovide(userID): Observable<any> {
     // console.log(userID);
 

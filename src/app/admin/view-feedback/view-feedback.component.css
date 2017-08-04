@@ -1,0 +1,11 @@
+.container{
+    margin-top: 75px;
+}
+.area{
+    width: 1084px;
+    height: 66px;
+}
+.example-header-image {
+  background-image: url('../../../assets/images.jpg');
+  background-size: cover;
+}
