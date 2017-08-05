@@ -102,13 +102,13 @@ export class BookParkingComponent implements OnInit {
             console.log('if1');
             if (this.startTime == element.val().startTime) {
               console.log('if2');
-              this.airportslots[element.val().slotNum].reserves = false;
+              this.airportslots[(element.val().slotNum)-1].reserves = false;
             }
             else if (this.startTime != element.val().startTime) {
               console.log('if2');
               if ((element.val().startTime > this.startTime && this.endTime > element.val().startTime) || (element.val().startTime > this.startTime && this.endTime > element.val().endTime)) {
                 console.log('if3');
-                this.airportslots[(element.val().slotNum - 1)].reserves = false;
+                this.airportslots[(element.val().slotNum-1)].reserves = false;
               }
             }
           }

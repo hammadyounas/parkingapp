@@ -16,6 +16,7 @@ import {
 export class FeedbackComponent implements OnInit {
   uid;
   arr = [];
+  ans;
   constructor(
     private _chatService: ChatService,
     private _authService: AuthService
@@ -37,8 +38,8 @@ export class FeedbackComponent implements OnInit {
 
   ngOnInit() {
   }
-  submit(msg){
-    this._chatService.pushChat(this.uid,msg);
+  submit(){
+    this._chatService.pushChat(this.uid,this.ans);
   }
 
 }
